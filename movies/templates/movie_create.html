@@ -45,8 +45,25 @@
               <a class="nav-link" href="{% url 'movie-list' %}">Movies</a>
             </li>
           </ul>
+          <a class="nav-linl col-1 " href="{% url 'register' %}">Register</a>
+        
+        
+        {% if request.user.is_authenticated %}
+        
+        <a class="nav-linl" href="{% url 'logout' %}">logout</a>
+        
+        {% else %}
+        <form action="{% url 'register' %}"></form>
+        {% endif %}
+
+        {% if request.user.is_anonymous %}
+        
+        <a class="nav-linl" href="{% url 'login' %}">login</a>
+        
+        </form>
+        {% endif %}
         </div>
-      </nav>
+     </nav>
   
       <main class="bg-light h-100">
         <form class="container py-2" action="{% url 'create-movie' %}" method="POST">

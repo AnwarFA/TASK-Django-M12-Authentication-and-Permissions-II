@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from movies import models
+from . import models
 
 to_register = [
     models.Movie,
